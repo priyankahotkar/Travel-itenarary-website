@@ -117,15 +117,15 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex items-center space-x-6 mb-4 md:mb-0">
-            <a href="#" className="bg-white p-2 rounded-full shadow-md hover:shadow-lg transition-shadow"><Facebook className="w-5 h-5 text-purple-700" /></a>
-            <a href="#" className="bg-white p-2 rounded-full shadow-md hover:shadow-lg transition-shadow"><Instagram className="w-5 h-5 text-purple-700" /></a>
-            <a href="#" className="bg-white p-2 rounded-full shadow-md hover:shadow-lg transition-shadow"><Linkedin className="w-5 h-5 text-purple-700" /></a>
-            <a href="#" className="bg-white p-2 rounded-full shadow-md hover:shadow-lg transition-shadow"><Youtube className="w-5 h-5 text-purple-700" /></a>
+            <a href="#" aria-label="Facebook" className="bg-white p-2 rounded-full shadow-md hover:shadow-lg transition-shadow"><Facebook className="w-5 h-5 text-purple-700" /></a>
+            <a href="#" aria-label="Instagram" className="bg-white p-2 rounded-full shadow-md hover:shadow-lg transition-shadow"><Instagram className="w-5 h-5 text-purple-700" /></a>
+            <a href="#" aria-label="LinkedIn" className="bg-white p-2 rounded-full shadow-md hover:shadow-lg transition-shadow"><Linkedin className="w-5 h-5 text-purple-700" /></a>
+            <a href="#" aria-label="YouTube" className="bg-white p-2 rounded-full shadow-md hover:shadow-lg transition-shadow"><Youtube className="w-5 h-5 text-purple-700" /></a>
           </div>
           <div className="flex space-x-6 text-xs text-purple-100">
-            <a href="#" className="hover:text-white transition-colors">Privacy policy</a>
-            <a href="#" className="hover:text-white transition-colors">Legal notice</a>
-            <a href="#" className="hover:text-white transition-colors">Accessibility</a>
+            <a href="#" aria-label="Privacy policy" className="hover:text-white transition-colors">Privacy policy</a>
+            <a href="#" aria-label="Legal notice" className="hover:text-white transition-colors">Legal notice</a>
+            <a href="#" aria-label="Accessibility" className="hover:text-white transition-colors">Accessibility</a>
           </div>
         </div>
         <div className="text-center text-xs text-purple-200 mt-4">© 2025 Vigovia Travel Technologies (P) Ltd. All rights reserved.</div>

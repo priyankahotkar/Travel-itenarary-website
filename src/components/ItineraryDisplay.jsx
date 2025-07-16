@@ -4,6 +4,8 @@ import { getDestinationImage, getActivityImage } from '../utils/destinationImage
 import { format, parseISO, differenceInDays } from 'date-fns';
 import FlightSummary from './FlightSummary';
 import HotelBookings from './HotelBookings';
+import Button from '../ui/Button';
+import Card from '../ui/Card';
 
 const ItineraryDisplay = ({ itinerary, formData, onDownloadPDF, onStartOver }) => {
   const startDate = parseISO(formData.startDate);
@@ -14,7 +16,7 @@ const ItineraryDisplay = ({ itinerary, formData, onDownloadPDF, onStartOver }) =
   return (
     <div className="max-w-4xl mx-auto">
       {/* Header Card */}
-      <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl p-8 mb-8 shadow-2xl text-white relative overflow-hidden">
+      <Card className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl p-8 mb-8 shadow-2xl text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black bg-opacity-20"></div>
         <div className="relative z-10">
           <h1 className="text-2xl font-light mb-2">Hi, {formData.travelerName || 'Traveler'}!</h1>
@@ -30,26 +32,26 @@ const ItineraryDisplay = ({ itinerary, formData, onDownloadPDF, onStartOver }) =
           </div>
 
           <div className="flex flex-wrap gap-4">
-            <button
+            <Button
               onClick={onDownloadPDF}
-              className="bg-white text-blue-600 px-6 py-3 rounded-xl font-semibold flex items-center hover:bg-gray-100 transition-colors shadow-lg"
+              className="flex items-center gap-2 bg-white text-purple-700 font-bold px-4 py-2 rounded-lg shadow border border-purple-200 hover:bg-purple-100 transition-colors"
+              aria-label="Download PDF"
             >
-              <Download className="mr-2 w-5 h-5" />
-              Download PDF
-            </button>
-            <button
+              <Download className="w-5 h-5" /> Download PDF
+            </Button>
+            <Button
               onClick={onStartOver}
-              className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-colors flex items-center"
+              className="flex items-center gap-2 bg-gray-100 text-gray-700 font-semibold px-4 py-2 rounded-lg shadow hover:bg-gray-200 transition-colors mt-4"
+              aria-label="Start Over"
             >
-              <ArrowLeft className="mr-2 w-5 h-5" />
-              Plan New Trip
-            </button>
+              <ArrowLeft className="w-5 h-5" /> Start Over
+            </Button>
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* Trip Details Card */}
-      <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+      <Card className="bg-white rounded-2xl shadow-lg p-6 mb-8">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
           <div>
             <p className="text-sm font-medium text-gray-500 mb-1">Departure From</p>
@@ -72,12 +74,12 @@ const ItineraryDisplay = ({ itinerary, formData, onDownloadPDF, onStartOver }) =
             <p className="font-semibold text-gray-800">{formData.groupSize}</p>
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* Itinerary Days */}
       <div className="space-y-6">
         {itinerary.days.map((day, index) => (
-          <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row">
+          <Card key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row">
             {/* Day Number Sidebar */}
             <div className="flex flex-col items-center justify-center min-w-[80px] bg-purple-900 rounded-l-3xl relative">
               <div className="absolute left-1/2 -translate-x-1/2 top-6">
@@ -168,7 +170,7 @@ const ItineraryDisplay = ({ itinerary, formData, onDownloadPDF, onStartOver }) =
                 )}
               </div>
             </div>
-          </div>
+          </Card>
         ))}
       </div>
 
@@ -179,7 +181,7 @@ const ItineraryDisplay = ({ itinerary, formData, onDownloadPDF, onStartOver }) =
       <HotelBookings formData={formData} itinerary={itinerary} />
 
       {/* Important Notes, Scope of Service, Inclusion Summary - Styled to match provided image */}
-      <div className="bg-white rounded-3xl shadow-2xl p-8 mt-8 mb-8">
+      <Card className="bg-white rounded-3xl shadow-2xl p-8 mt-8 mb-8">
         {/* Important Notes */}
         <h2 className="text-2xl font-bold text-[black] mb-4">Important <span className="text-purple-600">Notes</span></h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -273,10 +275,10 @@ const ItineraryDisplay = ({ itinerary, formData, onDownloadPDF, onStartOver }) =
             <span className="text-xs text-gray-500">PLAN.PACK.GO</span>
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* Activity Table */}
-      <div className="bg-white rounded-3xl shadow-2xl p-8 mt-8 mb-8">
+      <Card className="bg-white rounded-3xl shadow-2xl p-8 mt-8 mb-8">
         <h2 className="text-2xl font-bold text-black mb-4">Activity <span className="text-[#6C3FC5]">Table</span></h2>
         <div className="overflow-x-auto rounded-2xl shadow-md">
           <table className="w-full text-sm">
@@ -311,16 +313,16 @@ const ItineraryDisplay = ({ itinerary, formData, onDownloadPDF, onStartOver }) =
             </tbody>
           </table>
         </div>
-      </div>
+      </Card>
 
       {/* Terms and Conditions */}
-      <div className="bg-white rounded-3xl shadow-2xl p-8 mt-8 mb-8">
+      <Card className="bg-white rounded-3xl shadow-2xl p-8 mt-8 mb-8">
         <h2 className="text-lg font-bold text-black mb-2">Terms and <span className="text-[#6C3FC5]">Conditions</span></h2>
         <a href="#" className="text-blue-600 underline text-sm font-medium">View all terms and conditions</a>
-      </div>
+      </Card>
 
       {/* Payment Plan */}
-      <div className="bg-white rounded-3xl shadow-2xl p-8 mt-8 mb-8">
+      <Card className="bg-white rounded-3xl shadow-2xl p-8 mt-8 mb-8">
         <h2 className="text-2xl font-bold text-black mb-4">Payment <span className="text-purple-600">Plan</span></h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4">
           <div className="rounded-2xl overflow-hidden shadow-md">
@@ -366,10 +368,10 @@ const ItineraryDisplay = ({ itinerary, formData, onDownloadPDF, onStartOver }) =
             </tbody>
           </table>
         </div>
-      </div>
+      </Card>
 
       {/* Visa Details and Book Now CTA */}
-      <div className="bg-white rounded-3xl shadow-2xl p-8 mt-8 mb-8">
+      <Card className="bg-white rounded-3xl shadow-2xl p-8 mt-8 mb-8">
         <h2 className="text-xl font-bold text-black mb-4">Visa <span className="text-purple-600">Details</span></h2>
         <div className="border border-purple-400 rounded-xl p-4 flex flex-col md:flex-row justify-between items-center mb-6">
           <div className="flex-1 flex flex-col items-center md:items-start mb-4 md:mb-0">
@@ -390,10 +392,10 @@ const ItineraryDisplay = ({ itinerary, formData, onDownloadPDF, onStartOver }) =
           <h3 className="text-2xl font-bold text-purple-800 tracking-widest mb-4">PLAN.PACK.GO!</h3>
           <button className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-10 rounded-full text-lg shadow-lg transition-all">Book Now</button>
         </div>
-      </div>
+      </Card>
 
       {/* Recommendations */}
-      <div className="bg-white rounded-2xl shadow-lg p-8 mt-8">
+      <Card className="bg-white rounded-2xl shadow-lg p-8 mt-8">
         <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
           <Lightbulb className="mr-3 w-7 h-7 text-yellow-500" />
           Travel Tips & Recommendations
@@ -406,10 +408,10 @@ const ItineraryDisplay = ({ itinerary, formData, onDownloadPDF, onStartOver }) =
             </div>
           ))}
         </div>
-      </div>
+      </Card>
 
       {/* Budget Summary */}
-      <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 mt-6 border border-green-200">
+      <Card className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 mt-6 border border-green-200">
         <div className="flex justify-between items-center">
           <div>
             <h3 className="text-lg font-bold text-gray-800">Total Estimated Budget</h3>
@@ -420,7 +422,7 @@ const ItineraryDisplay = ({ itinerary, formData, onDownloadPDF, onStartOver }) =
             <p className="text-sm text-gray-500">{formData.budget} range</p>
           </div>
         </div>
-      </div>
+      </Card>
     </div>
   );
 };
