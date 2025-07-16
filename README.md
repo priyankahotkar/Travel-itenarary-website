@@ -27,7 +27,7 @@ A modern, interactive web application for planning, visualizing, and exporting b
 
 1. **Clone the repository:**
    ```bash
-   git clone 
+   git clone https://github.com/priyankahotkar/Travel-itenarary-website.git
    cd TravelIternary/project
    ```
 
