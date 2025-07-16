@@ -1,6 +1,6 @@
 # Travel Itinerary Planner
 
-A modern, interactive web application for planning, visualizing, and exporting beautiful travel itineraries. Users can enter trip details, add custom activities, flights, and transfers for each day, and generate a visually rich itinerary that can be downloaded as a PDF.
+A modern, interactive web application for planning, visualizing, and exporting beautiful travel itineraries. Users can enter trip details, add custom activities, flights, and transfers for each day, and generate a visually rich itinerary that can be downloaded as a PDF. [View live website](https://travel-itenarary-website.vercel.app/)
 
 ---
 
